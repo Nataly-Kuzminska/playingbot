@@ -1,8 +1,6 @@
 'use strict';
 let question = confirm('Угадай число от 1 до 100');
-let enter = prompt('Введи число от 1 до 100');
-let answer;
-let number;
+
 let getStatusAnswer;
 
 let isNumber = function(n) {
@@ -10,26 +8,30 @@ let isNumber = function(n) {
 };
 
 let randomNumber = function() {
-number = Math.floor(Math.random()*100) + 1;
+let number = Math.floor(Math.random()*100) + 1;
 
 let getStatusAnswer = function() {
-  if(answer > number) {
+  let answer = prompt('Введи число от 1 до 100');
+  console.log(number);
+  console.log(answer);
+
+  if(+answer > +number) {
     alert('Загаданное число меньше');
-  } else if(answer < number) {
+    getStatusAnswer();
+  } else if(+answer < +number) {
     alert('Загаданное число больше');
+    getStatusAnswer();
   } else if(!isNumber(answer)) {
     alert('Введи число'); 
-  } else if(answer === number) {
+    getStatusAnswer();
+  } else if(+answer === +number) {
     alert('Поздравляю, вы выиграли!');
   } else {
     alert('Игра окончена!');
   }
-  getStatusAnswer(answer);
-}; 
+};
+  getStatusAnswer();
 };
 
-isNumber();
-randomNumber(number);
-getStatusAnswer(answer);
 
-console.log(answer);
+randomNumber();
