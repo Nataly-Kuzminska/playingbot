@@ -14,8 +14,9 @@ let getStatusAnswer = function() {
   let answer = prompt('Введи число от 1 до 100');
   console.log(number);
   console.log(answer);
-
-  if(+answer > +number) {
+  if(answer === null) {
+    alert('Игра окончена');
+  } else if(+answer > +number) {
     alert('Загаданное число меньше');
     getStatusAnswer();
   } else if(+answer < +number) {
@@ -26,10 +27,10 @@ let getStatusAnswer = function() {
     getStatusAnswer();
   } else if(+answer === +number) {
     alert('Поздравляю, вы выиграли!');
-  } else if(+answer === null) {
-    alert('Игра окончена!');
-  }
+  } 
+
 };
+
   getStatusAnswer();
 };
 
