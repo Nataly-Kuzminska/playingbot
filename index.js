@@ -21,12 +21,12 @@ let getStatusAnswer = function() {
   } else if(+answer < +number) {
     alert('Загаданное число больше');
     getStatusAnswer();
-  } else if(!isNumber(answer)) {
+  } else if(!isNumber(+answer)) {
     alert('Введи число'); 
     getStatusAnswer();
   } else if(+answer === +number) {
     alert('Поздравляю, вы выиграли!');
-  } else {
+  } else if(+answer === null) {
     alert('Игра окончена!');
   }
 };
